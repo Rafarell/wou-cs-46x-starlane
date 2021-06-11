@@ -79,108 +79,85 @@ Experiencing favorite collections page as a user", ProgrammingLanguage.CSharp, (
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 10
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "Email",
+                        "FirstName",
+                        "LastName",
+                        "Password"});
+            table10.AddRow(new string[] {
+                        "TaliaK",
+                        "knott@example.com",
+                        "Talia",
+                        "Knott",
+                        "Abcd987?6"});
+            table10.AddRow(new string[] {
+                        "ZaydenC",
+                        "clark@example.com",
+                        "Zayden",
+                        "Clark",
+                        "Abcd987?6"});
+            table10.AddRow(new string[] {
+                        "DavilaH",
+                        "hareem@example.com",
+                        "Hareem",
+                        "Davila",
+                        "Abcd987?6"});
+            table10.AddRow(new string[] {
+                        "KrzysztofP",
+                        "krzysztof@example.com",
+                        "Krzysztof",
+                        "Ponce",
+                        "Abcd987?6"});
+#line 11
+ testRunner.Given("the following users exist", ((string)(null)), table10, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "Email",
+                        "FirstName",
+                        "LastName",
+                        "Password"});
+            table11.AddRow(new string[] {
+                        "JackieE",
+                        "notexist@example.com",
+                        "Jackie",
+                        "Ellisson",
+                        "nrkshjbsd"});
+            table11.AddRow(new string[] {
+                        "BreannaT",
+                        "notexist@example.com",
+                        "Breanna",
+                        "Tide",
+                        "ekrnfubec"});
+            table11.AddRow(new string[] {
+                        "RusselG",
+                        "notexist@example.com",
+                        "Russel",
+                        "Grande",
+                        "rnfklremf"});
+#line 18
+   testRunner.And("the following users do not exist", ((string)(null)), table11, "And ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("I will find all of my favorited collection on the favorited collections page.")]
-        public virtual void IWillFindAllOfMyFavoritedCollectionOnTheFavoritedCollectionsPage_()
+        [NUnit.Framework.TestCaseAttribute("Talia", "TaliaK", null)]
+        [NUnit.Framework.TestCaseAttribute("Zayden", "ZaydenC", null)]
+        [NUnit.Framework.TestCaseAttribute("Hareem", "DavilaH", null)]
+        [NUnit.Framework.TestCaseAttribute("Krzysztof", "KrzysztofP", null)]
+        public virtual void IWillFindAllOfMyFavoritedCollectionOnTheFavoritedCollectionsPage_(string firstName, string userName, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("FirstName", firstName);
+            argumentsOfScenario.Add("UserName", userName);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I will find all of my favorited collection on the favorited collections page.", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 11
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 12
- testRunner.Given("I am a logged in user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 13
-  testRunner.And("Have favorited collections", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 14
- testRunner.When("I navigate to the \'my favorites\' page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 15
- testRunner.Then("I will find all of my favorites collections with details such as name, owner, key" +
-                        "word, and date created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("If I click on one of the keywords associated with my favorite collections, I will" +
-            " be redirected to the browse page and search results will be displayed correspon" +
-            "ding to that keyword.")]
-        public virtual void IfIClickOnOneOfTheKeywordsAssociatedWithMyFavoriteCollectionsIWillBeRedirectedToTheBrowsePageAndSearchResultsWillBeDisplayedCorrespondingToThatKeyword_()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("If I click on one of the keywords associated with my favorite collections, I will" +
-                    " be redirected to the browse page and search results will be displayed correspon" +
-                    "ding to that keyword.", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 18
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 19
- testRunner.Given("I am a user on the my favorites page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 20
- testRunner.When("I click on a keyword associated with a favorite collection", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 21
- testRunner.Then("I will be redirected to the browse page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 22
-  testRunner.And("a search will be shown corresponding to that specific keyword", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("If I am a user who clicks on the remove button that corresponds to one of my exis" +
-            "ting favorite collections on the collections page, then that collection will be " +
-            "removed form my favorites.")]
-        public virtual void IfIAmAUserWhoClicksOnTheRemoveButtonThatCorrespondsToOneOfMyExistingFavoriteCollectionsOnTheCollectionsPageThenThatCollectionWillBeRemovedFormMyFavorites_()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("If I am a user who clicks on the remove button that corresponds to one of my exis" +
-                    "ting favorite collections on the collections page, then that collection will be " +
-                    "removed form my favorites.", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 24
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -201,17 +178,144 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 10
+this.FeatureBackground();
+#line hidden
 #line 25
- testRunner.Given("I am a user with favorites on the my favorites page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I am logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 26
- testRunner.When("I click on the remove button that corresponds to any of my favorite collections", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I navigate to the \'myfavorites\' page with \'{0}\'", userName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 27
- testRunner.Then("that collections will be removed from my favorites collection", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.And("Have favorited collections", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 28
-  testRunner.And("the page will reload with the removed collection no longer displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("I will find all of my favorites collections with details such as name, owner, key" +
+                        "word, and date created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("If I click on one of the keywords associated with my favorite collections, I will" +
+            " be redirected to the browse page and search results will be displayed correspon" +
+            "ding to that keyword.")]
+        [NUnit.Framework.TestCaseAttribute("Talia", "TaliaK", "Fish", null)]
+        [NUnit.Framework.TestCaseAttribute("Zayden", "ZaydenC", "Sports", null)]
+        [NUnit.Framework.TestCaseAttribute("Hareem", "DavilaH", "Tools", null)]
+        [NUnit.Framework.TestCaseAttribute("Krzysztof", "KrzysztofP", "Insects", null)]
+        public virtual void IfIClickOnOneOfTheKeywordsAssociatedWithMyFavoriteCollectionsIWillBeRedirectedToTheBrowsePageAndSearchResultsWillBeDisplayedCorrespondingToThatKeyword_(string firstName, string userName, string keyWord, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("FirstName", firstName);
+            argumentsOfScenario.Add("UserName", userName);
+            argumentsOfScenario.Add("KeyWord", keyWord);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("If I click on one of the keywords associated with my favorite collections, I will" +
+                    " be redirected to the browse page and search results will be displayed correspon" +
+                    "ding to that keyword.", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 38
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 10
+this.FeatureBackground();
+#line hidden
+#line 39
+ testRunner.Given("I am logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 40
+ testRunner.When(string.Format("I navigate to the \'myfavorites\' page with \'{0}\'", userName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 41
+  testRunner.And("Have favorited collections", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 42
+  testRunner.And("I click on a keyword associated with a favorite collection", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 43
+ testRunner.Then(string.Format("I will be redirected to the browse page with a search corresponding to that \'{0}\'" +
+                            "", keyWord), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("If I am a user who clicks on the remove button that corresponds to one of my exis" +
+            "ting favorite collections on the collections page, then that collection will be " +
+            "removed form my favorites.")]
+        [NUnit.Framework.TestCaseAttribute("Talia", "TaliaK", null)]
+        [NUnit.Framework.TestCaseAttribute("Zayden", "ZaydenC", null)]
+        [NUnit.Framework.TestCaseAttribute("Hareem", "DavilaH", null)]
+        [NUnit.Framework.TestCaseAttribute("Krzysztof", "KrzysztofP", null)]
+        public virtual void IfIAmAUserWhoClicksOnTheRemoveButtonThatCorrespondsToOneOfMyExistingFavoriteCollectionsOnTheCollectionsPageThenThatCollectionWillBeRemovedFormMyFavorites_(string firstName, string userName, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("FirstName", firstName);
+            argumentsOfScenario.Add("UserName", userName);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("If I am a user who clicks on the remove button that corresponds to one of my exis" +
+                    "ting favorite collections on the collections page, then that collection will be " +
+                    "removed form my favorites.", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 52
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 10
+this.FeatureBackground();
+#line hidden
+#line 53
+ testRunner.Given("I am logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 54
+ testRunner.When(string.Format("I navigate to the \'myfavorites\' page with \'{0}\'", userName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 55
+  testRunner.And("Have favorited collections", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 56
+  testRunner.And("I click on the remove button that corresponds to any of my favorite collections", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 57
+ testRunner.Then("the page will be reloaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 58
+  testRunner.And("the removed collection no longer be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

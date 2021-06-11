@@ -7,22 +7,59 @@
 
 Experiencing favorite collections page as a user
 
+Background:
+	Given the following users exist
+	  | UserName   | Email                 | FirstName | LastName | Password  |
+	  | TaliaK     | knott@example.com     | Talia     | Knott    | Abcd987?6 |
+	  | ZaydenC    | clark@example.com     | Zayden    | Clark    | Abcd987?6 |
+	  | DavilaH    | hareem@example.com    | Hareem    | Davila   | Abcd987?6 |
+	  | KrzysztofP | krzysztof@example.com | Krzysztof | Ponce    | Abcd987?6 |
+
+	  And the following users do not exist
+	  | UserName | Email                  | FirstName | LastName | Password  |
+	  | JackieE  | notexist@example.com   | Jackie    | Ellisson | nrkshjbsd |
+	  | BreannaT | notexist@example.com   | Breanna   | Tide     | ekrnfubec |
+	  | RusselG  | notexist@example.com   | Russel    | Grande   | rnfklremf |
 
 Scenario Outline: I will find all of my favorited collection on the favorited collections page.
-	Given I am a logged in user 
+	Given I am logged in
+	When I navigate to the 'myfavorites' page with '<UserName>'
 		And Have favorited collections
-	When I navigate to the 'my favorites' page
 	Then I will find all of my favorites collections with details such as name, owner, keyword, and date created
+
+	Examples: 
+	  | FirstName | UserName   |
+	  | Talia     | TaliaK     |
+	  | Zayden    | ZaydenC    |
+	  | Hareem    | DavilaH    |
+	  | Krzysztof | KrzysztofP |
 
 
 Scenario Outline: If I click on one of the keywords associated with my favorite collections, I will be redirected to the browse page and search results will be displayed corresponding to that keyword.
-	Given I am a user on the my favorites page
-	When I click on a keyword associated with a favorite collection
-	Then I will be redirected to the browse page
-		And a search will be shown corresponding to that specific keyword
+	Given I am logged in
+	When I navigate to the 'myfavorites' page with '<UserName>'
+		And Have favorited collections
+		And I click on a keyword associated with a favorite collection
+	Then I will be redirected to the browse page with a search corresponding to that '<KeyWord>'
+
+		Examples: 
+	  | FirstName | UserName   | KeyWord |
+	  | Talia     | TaliaK     | Fish    |
+	  | Zayden    | ZaydenC    | Sports  |
+	  | Hareem    | DavilaH    | Tools   |
+	  | Krzysztof | KrzysztofP | Insects |
 
 Scenario Outline: If I am a user who clicks on the remove button that corresponds to one of my existing favorite collections on the collections page, then that collection will be removed form my favorites.
-	Given I am a user with favorites on the my favorites page
-	When I click on the remove button that corresponds to any of my favorite collections
-	Then that collections will be removed from my favorites collection
-		And the page will reload with the removed collection no longer displayed
+	Given I am logged in
+	When I navigate to the 'myfavorites' page with '<UserName>'
+		And Have favorited collections
+		And I click on the remove button that corresponds to any of my favorite collections
+	Then the page will be reloaded
+		And the removed collection no longer be displayed
+
+		Examples: 
+	  | FirstName | UserName   |
+	  | Talia     | TaliaK     |
+	  | Zayden    | ZaydenC    |
+	  | Hareem    | DavilaH    |
+	  | Krzysztof | KrzysztofP |
