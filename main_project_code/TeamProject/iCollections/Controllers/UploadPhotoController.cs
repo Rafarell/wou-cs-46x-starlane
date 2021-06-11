@@ -29,9 +29,11 @@ namespace iCollections.Controllers
         [Authorize]
         public IActionResult Index()
         {
+            if (TempData["SuccessMessage"] != null) { ViewBag.SuccessMessage = TempData["SuccessMessage"].ToString(); }
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult UploadImage(string customName)
         {
@@ -42,11 +44,13 @@ namespace iCollections.Controllers
             {
                 var photoUploader = new PhotoUploader(_photoRepo, userId);
                 photoUploader.UploadImage(customName, Request.Form.Files[0]);
-                return RedirectToAction("Success");
+                TempData["SuccessMessage"] = "Photo uploaded successfully";
+                return RedirectToAction("Index");
             }
             catch (Exception)
             {
-                return RedirectToAction("Index");
+                ModelState.AddModelError(String.Empty, "Please enter a proper filename");
+                return View("Index");
             }
         }
 
@@ -54,6 +58,12 @@ namespace iCollections.Controllers
         public IActionResult Success()
         {
             return View("Success", "Your photo was uploaded.");
+        }
+
+        [HttpGet]
+        public IActionResult NeedHelp()
+        {
+            return View();
         }
     }
 }

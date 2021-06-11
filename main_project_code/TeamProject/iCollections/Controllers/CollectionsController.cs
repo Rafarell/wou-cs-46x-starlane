@@ -192,7 +192,7 @@ namespace iCollections.Controllers
             {
                 LoggedInUser = user,
                 VisitedUser = user,
-                SearchResults = _collectionkeywordRepo.GetPublicCollectionKeywordsByUser(user),
+                SearchResults = _collectionkeywordRepo.GetPublicAndPrivateCollectionKeywordsByUser(user),
                 SuggestedKeywords = null
                 
             };
@@ -404,6 +404,7 @@ namespace iCollections.Controllers
         }
 
         // POST: Collections/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
